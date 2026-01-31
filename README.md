@@ -1,16 +1,43 @@
-# React + Vite
+# React Intern Assignment (REACTIIP01002)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a User Account Management Single Page Application (SPA) built to fulfill the practical interview requirements for the Chaintech Network React Developer Internship.
 
-Currently, two official plugins are available:
+**Live Demo:** https://chaintech-network-internship-assign.vercel.app/login
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 Project Overview
+This application allows users to create an account, log in securely, and manage their profile information. It demonstrates core React competencies including state management, routing, form validation, and "CRUD-like" operations using browser storage.
 
-## React Compiler
+### Key Features
+* **User Registration:** Allows users to sign up with Name, Email, Password, Age, DOB, and Phone.
+* **Authentication:** Secure login flow using `localStorage` to persist user sessions.
+* **Profile Management:** Users can view and edit their personal details (Name, Age, Gender, Phone) after logging in.
+* **Safety Checks:**
+    * Prevents selecting future dates for birth.
+    * Validates password matching.
+    * Checks for duplicate emails during signup.
+* **Protected Routes:** Unauthenticated users are automatically redirected from the Dashboard to the Login page.
+* **Responsive UI:** Built with **Bootstrap 5** for a clean, mobile-friendly design.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
+* **Frontend:** React.js (V16+)
+* **Styling:** Bootstrap 5 (CDN/NPM)
+* **Routing:** React Router DOM
+* **State Management:** Context API (`AuthContext`)
+* **Data Persistence:** LocalStorage (No backend required)
 
-## Expanding the ESLint configuration
+## 📂 Folder Structure
+The project follows a clean, feature-based architecture to ensure maintainability:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+src/
+├── components/
+│   ├── Navbar.jsx         # Dynamic navigation (Login vs Logout states)
+│   └── ProtectedRoute.jsx # Route guard logic
+├── context/
+│   └── AuthContext.jsx    # Centralized authentication logic
+├── pages/
+│   ├── Login.jsx          # Login view
+│   ├── Register.jsx       # Registration view
+│   └── Home.jsx           # Dashboard & Edit Profile view
+├── App.jsx                # Main routing configuration
+└── main.jsx               # App entry point
